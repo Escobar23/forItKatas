@@ -14,14 +14,21 @@ export function romanNumerals(n: number){
             4: "IV",
             1: "I"
         };
-const keys = Object.keys(romanNumeralsMap)
-  .map(Number)
-  .sort((a, b) => b - a);
+    let result = ""
+    const keys = Object.keys(romanNumeralsMap)
+        .map(Number)
+        .sort((a, b) => b - a);
 
 // Recorrer
-for (const key of keys) {
-  const roman = romanNumeralsMap[key];
-  console.log(key, roman); // podés hacer lo que quieras acá
-}
-        
+    for (const key of keys) {
+        const roman = romanNumeralsMap[key];
+        while (n >= key) {
+            result += roman;
+            n -= key;
+        }
+    //console.log(key, roman); // podés hacer lo que quieras acá
+    }
+    console.log(result);
+return result;
+    
 }
